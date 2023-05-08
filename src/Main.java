@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class Main extends JPanel implements ActionListener, Runnable {
     private JButton carBtn, bikeBtn;
-    private int carX = 0, bikeY = 0;
+    private double carX = 0, bikeY = 0;
     private Thread carThread, bikeThread;
     private final int frameWidth = 400, frameHeight = 400;
     private VehiclePanel vehiclePanel;
@@ -62,10 +62,10 @@ public class Main extends JPanel implements ActionListener, Runnable {
         Thread currentThread = Thread.currentThread();
         if (currentThread == carThread) {
             while (carX <= frameWidth) {
-                carX += 5;
+                carX += 1.5;
                 updateVehiclePanel(); // replace repaint() method to our custom method
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(4,16);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -74,10 +74,10 @@ public class Main extends JPanel implements ActionListener, Runnable {
             carThread = null; // set carThread to null for next use
         } else if (currentThread == bikeThread) {
             while (bikeY <= frameHeight) {
-                bikeY += 5;
+                bikeY += 1;
                 updateVehiclePanel(); // replace repaint() method to our custom method
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(4,16);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

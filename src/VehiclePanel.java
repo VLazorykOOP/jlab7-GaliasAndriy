@@ -2,21 +2,21 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class VehiclePanel extends JPanel {
-    private int carX, bikeY;
+    private double carX, bikeY;
 
-    int getCarX() {
+    double getCarX() {
         return carX;
     }
-    void setCarX(int x) {
+    void setCarX(double x) {
         carX = x;
     }
-    int getBikeY() {
+    double getBikeY() {
         return bikeY;
     }
-    void setBikeY(int y) {
+    void setBikeY(double y) {
         bikeY = y;
     }
-    public VehiclePanel(int carX, int bikeY) {
+    public VehiclePanel(double carX, double bikeY) {
         this.carX = carX;
         this.bikeY = bikeY;
     }
@@ -30,8 +30,8 @@ public class VehiclePanel extends JPanel {
         int y = size.height;
 
         g.setColor(Color.GREEN);
-        g.fillRect(carX, x / 2, 20, 10); // draw car
+        g.fillRect((int) carX, x / 2, 20, 10); // draw car
         g.setColor(Color.BLUE);
-        g.fillRect(y / 2, bikeY, 10, 20); // draw bike
+        g.fillRect(y / 2, (int) bikeY, 10, 20); // draw bike
     }
 }
