@@ -71,6 +71,7 @@ public class Main extends JPanel implements ActionListener, Runnable {
                 }
             }
             carX = 0;
+            updateVehiclePanel(); // final update for painting start positions of vehicles
             carThread = null; // set carThread to null for next use
         } else if (currentThread == bikeThread) {
             while (bikeY <= frameHeight) {
@@ -83,6 +84,7 @@ public class Main extends JPanel implements ActionListener, Runnable {
                 }
             }
             bikeY = 0;
+            updateVehiclePanel(); // final update for painting start positions of vehicles
             bikeThread = null; // set bikeThread to null for next use
         }
     }
