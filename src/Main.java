@@ -55,7 +55,6 @@ public class Main extends JPanel implements ActionListener, Runnable {
                 bikeThread.start();
             }
         }
-        updateVehiclePanel();
     }
 
     @Override
@@ -63,10 +62,10 @@ public class Main extends JPanel implements ActionListener, Runnable {
         Thread currentThread = Thread.currentThread();
         if (currentThread == carThread) {
             while (carX <= frameWidth) {
-                carX += 8;
-                repaint();
+                carX += 5;
+                updateVehiclePanel(); // replace repaint() method to our custom method
                 try {
-                    Thread.sleep(35);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -75,8 +74,8 @@ public class Main extends JPanel implements ActionListener, Runnable {
             carThread = null; // set carThread to null for next use
         } else if (currentThread == bikeThread) {
             while (bikeY <= frameHeight) {
-                bikeY += 6;
-                repaint();
+                bikeY += 5;
+                updateVehiclePanel(); // replace repaint() method to our custom method
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
